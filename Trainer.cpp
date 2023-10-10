@@ -61,7 +61,7 @@ Pokemon Trainer::choose_pokemon() {
 //          pokemon is removed from the roster.
 Pokemon Trainer::choose_pokemon(PokemonType adversary_type) {
   assert(!active_roster.empty());
-  for(int i = 0; i < active_roster.size(); ++i) {
+  for(int i = 0; i < 5; ++i) {
     if (active_roster[i].is_effective_against(adversary_type)) {
       Pokemon chosen = active_roster[i];
       active_roster.erase(active_roster.begin() + i);
