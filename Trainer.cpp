@@ -61,14 +61,15 @@ Pokemon Trainer::choose_pokemon() {
 //          pokemon is removed from the roster.
 Pokemon Trainer::choose_pokemon(PokemonType adversary_type) {
   assert(!active_roster.empty());
+  Pokemon chosen;
   for(int i = 0; i < active_roster.size(); ++i) {
     if (active_roster[i].is_effective_against(adversary_type)) {
-      Pokemon chosen = active_roster[i];
+      chosen = active_roster[i];
       active_roster.erase(active_roster.begin() + i);
-      return chosen;
+      break;
     }
   }
-  return choose_pokemon();
+  return chosen;
 }
 
 // EFFECTS: Resets the trainers active roster so that it contains all
